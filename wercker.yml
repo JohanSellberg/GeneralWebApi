@@ -11,9 +11,9 @@ build:
     - script:
       name: go build
       code: |
-        go build ./..
+        go build ./GeneralWebApi/..
 
     - script:
       name: go test
       code: |
-        go test ./..
+        go test ./GeneralWebApi/..
