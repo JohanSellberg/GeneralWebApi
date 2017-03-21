@@ -13,4 +13,4 @@ before_install:
   - docker run -d -p 127.0.0.1:80:80 --name general_web_api general_web_api
 
 script:
-  - docker ps | grep -q GeneralWebApi
+  - docker ps | grep -q general_web_api
