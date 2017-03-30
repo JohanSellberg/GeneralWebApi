@@ -17,3 +17,11 @@ build:
       name: go test
       code: |
         go test ./GeneralWebApi/..
+deploy:
+  steps:
+  - internal/docker-push:
+        username: $USERNAME
+        password: $PASSWORD
+        repository: vptlabs.azurecr.io/generalwebapi
+        registry: https://vptlabs.azurecr.io
+        ports: "8080"
