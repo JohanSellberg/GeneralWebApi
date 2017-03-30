@@ -1,4 +1,6 @@
-box: golang
+box: 
+  id: golang
+  entrypoint: /go/bin/GeneralWebApi
 
 build:
   steps:
@@ -22,6 +24,6 @@ deploy:
   - internal/docker-push:
         username: $USERNAME
         password: $PASSWORD
-        repository: vptlabs.azurecr.io/generalwebapi
+        repository: vptlabs.azurecr.io/lab/generalwebapi
         registry: https://vptlabs.azurecr.io
-        ports: "8080, 6060"
+        
