@@ -24,4 +24,4 @@ deploy:
         password: $PASSWORD
         repository: vptlabs.azurecr.io/generalwebapi
         registry: https://vptlabs.azurecr.io
-        ports: "8080"
+        ports: "8080, 6060"
