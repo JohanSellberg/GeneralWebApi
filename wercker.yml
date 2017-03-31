@@ -21,12 +21,21 @@ build:
         go test ./GeneralWebApi/..
 deploy:
   steps:
+    - internal/store-container:  
     - script:
       name: docker push
       code: |
         docker login vptlabs.azurecr.io -u $USERNAME -p $PASSWORD
         docker tag generalwebapi  vptlabs.azurecr.io/test/generalwebapi
         docker push vptlabs.azurecr.io/test/generalwebapi
+
+# Does not work since docker command not available.. use internal steps
+#    - script:
+#      name: docker push
+#      code: |
+#        docker login vptlabs.azurecr.io -u $USERNAME -p $PASSWORD
+#        docker tag generalwebapi  vptlabs.azurecr.io/test/generalwebapi
+#        docker push vptlabs.azurecr.io/test/generalwebapi
 #  - internal/docker-push:
 #        username: $USERNAME
 #        password: $PASSWORD
