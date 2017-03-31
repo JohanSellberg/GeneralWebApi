@@ -21,16 +21,16 @@ build:
         go test ./GeneralWebApi/..
 deploy:
   steps:
-  - internal/docker-push:
-        username: $USERNAME
-        password: $PASSWORD
-        repository: vptlabs.azurecr.io/lab/generalwebapi
-        registry: https://vptlabs.azurecr.io/v2
+    - script:
+      name: docker push
+      code: |
+        docker login vptlabs.azurecr.io -u $USERNAME -p $PASSWORD
+        docker tag generalwebapi  vptlabs.azurecr.io/test/generalwebapi
+        docker push vptlabs.azurecr.io/test/generalwebapi
+#  - internal/docker-push:
+#        username: $USERNAME
+#        password: $PASSWORD
+#        repository: vptlabs.azurecr.io/lab/generalwebapi
+#        registry: https://vptlabs.azurecr.io/
 
 
-#    - internal/shell:
-#      cmd: /bin/sh
-#      code: |
-#        docker login vptlabs.azurecr.io -u $USERNAME -p $PASSWORD
-#        docker tag generalwebapi  vptlabs.azurecr.io/test/generalwebapi
-#        docker push vptlabs.azurecr.io/test/generalwebapi
