@@ -21,7 +21,7 @@ build:
         go test ./GeneralWebApi/..
 deploy:
   steps:
-    - internal/store-container:  
+    - internal/store-container  
     - script:
       name: docker push
       code: |
