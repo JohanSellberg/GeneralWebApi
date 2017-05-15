@@ -27,3 +27,4 @@ deploy:
         password: $GCR_JSON_KEY_FILE
         repository: gcr.io/afa-vtp/vtp-hello-world-js
         registry: https://gcr.io/v2
+        tag: test
