@@ -23,12 +23,11 @@ build:
     - internal/store-container 
 deploy:
   steps:     
-    - script:
-      name: docker push
-      code: |
-        docker login vptlabs.azurecr.io -u $USERNAME -p $PASSWORD
-        docker tag generalwebapi  vptlabs.azurecr.io/test/generalwebapi
-        docker push vptlabs.azurecr.io/test/generalwebapi
+    - internal/docker-push:
+        username: _json_key
+        password: $GCR_JSON_KEY_FILE
+        repository: gcr.io/afa-vtp/vtp-hello-world-js
+        registry: https://gcr.io/v2
 
 # Does not work since docker command not available.. use internal steps
 #    - script:
