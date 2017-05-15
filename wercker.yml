@@ -20,7 +20,6 @@ build:
       code: |
         go test ./GeneralWebApi/..
 
-    - internal/store-container 
 deploy:
   steps:     
     - internal/docker-push:
